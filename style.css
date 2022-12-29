@@ -179,8 +179,9 @@ body {
 
 .content {
   display: grid;
-  grid-row: 2;
+  grid-row: 2/3;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: 1fr 1fr;
   padding: 4rem;
 }
 
@@ -198,7 +199,33 @@ body {
   font-weight: bold;
 }
 
+.add-book-form {
+  position: fixed;
+  top: 30vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  border: 3px solid grey;
+  border-radius: 15px;
+  background-color: #eaeaea;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+.add-book-form div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+}
+
 .hidden {
-  transition: opacity 1;
   opacity: 0;
 }/*# sourceMappingURL=style.css.map */
