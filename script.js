@@ -30,13 +30,24 @@ function addBookToLibrary(title, author, date, rating, status) {
 addBookToLibrary('Moby Dick', 'Herman Melville', '2022/04/13', 5, true);
 addBookToLibrary('Lolita', 'Vladmir Nabokov', '2020/01/13', 5, false);
 
-console.log(myLibrary);
-
-function displayBook(arr) {
-	arr.forEach((element) => {
+function displayAllBooks(arr, last = false) {
+	if (last) {
 		content.insertAdjacentHTML(
-			'afterbegin',
+			'beforeend',
 			`
+				<div class="card">
+					<div class="title-card">${arr[arr.length - 1].title}</div>
+					<div class="author-card">${arr[arr.length - 1].author}</div>
+					<div class="date-card">${arr[arr.length - 1].date}</div>
+					<div class="rating-card">${arr[arr.length - 1].rating}</div>
+					<div class="status-card">${arr[arr.length - 1].status}</div>
+				</div>`
+		);
+	} else {
+		arr.forEach((element) => {
+			content.insertAdjacentHTML(
+				'beforeend',
+				`
 		<div class="card">
 					<div class="title-card">${element.title}</div>
 					<div class="author-card">${element.author}</div>
@@ -44,11 +55,12 @@ function displayBook(arr) {
 					<div class="rating-card">${element.rating}</div>
 					<div class="status-card">${element.status}</div>
 				</div>`
-		);
-	});
+			);
+		});
+	}
 }
 
-displayBook(myLibrary);
+displayAllBooks(myLibrary);
 
 titleWindow.addEventListener('click', () => {
 	form.classList.toggle('hidden');
@@ -58,11 +70,11 @@ btnSumbit.addEventListener('click', (e) => {
 	e.preventDefault();
 	form.classList.toggle('hidden');
 	addBookToLibrary(
-		titleInput.textContent,
-		authorInput.textContent,
-		dateInput.textContent,
-		ratingInput.textContent,
-		statusInput.textContent
+		titleInput.value,
+		authorInput.value,
+		dateInput.value,
+		ratingInput.value,
+		statusInput.value
 	);
-	displayBook(myLibrary);
+	displayAllBooks(myLibrary, true);
 });
