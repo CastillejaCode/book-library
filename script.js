@@ -2,6 +2,10 @@
 /* eslint-disable prefer-const */
 /* eslint-disable no-unused-vars */
 
+const buttonAdd = document.querySelector('.add');
+const buttonContainer = document.querySelector('.add-container');
+const headerTitle = document.querySelector('.add-1');
+const buttonAdd2 = document.querySelector('.add-2');
 const content = document.querySelector('.content');
 
 let myLibrary = [];

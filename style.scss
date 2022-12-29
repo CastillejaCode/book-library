@@ -154,6 +154,33 @@ body {
 	box-shadow: 0px 2px 1rem grey;
 }
 
+.title-window {
+	position: fixed;
+	top: 7%;
+	left: 50%;
+	width: 156px;
+	height: 55px;
+	transform: translate(-50%, -7%);
+	overflow: hidden;
+}
+
+.title-container {
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	transition: all 0.5s;
+
+	&:hover {
+		transform: translateY(-57px);
+	}
+
+	.add {
+		margin-top: 10px;
+	}
+}
+
 .content {
 	display: grid;
 	grid-row: 2;
@@ -176,4 +203,9 @@ body {
 
 	font-size: 1.5rem;
 	font-weight: bold;
+}
+
+.hidden {
+	transition: opacity 1;
+	opacity: 0;
 }

@@ -1,1 +1,204 @@
-/*# sourceMappingURL=style.css.map */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #eaeaea;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 6fr;
+}
+
+.header {
+  display: grid;
+  place-content: center;
+  font-size: 3rem;
+  font-weight: 700;
+  box-shadow: 0px 2px 1rem grey;
+}
+
+.title-window {
+  position: fixed;
+  top: 7%;
+  left: 50%;
+  width: 156px;
+  height: 55px;
+  transform: translate(-50%, -7%);
+  overflow: hidden;
+}
+
+.title-container {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.5s;
+}
+.title-container:hover {
+  transform: translateY(-57px);
+}
+.title-container .add {
+  margin-top: 10px;
+}
+
+.content {
+  display: grid;
+  grid-row: 2;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  padding: 4rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  max-height: 300px;
+  max-width: 250px;
+  border: 3px solid grey;
+  border-radius: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.hidden {
+  transition: opacity 1;
+  opacity: 0;
+}/*# sourceMappingURL=style.css.map */
