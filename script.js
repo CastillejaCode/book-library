@@ -6,7 +6,6 @@ const titleWindow = document.querySelector('.title-window');
 const form = document.querySelector('.add-book-form');
 const content = document.querySelector('.content');
 const btnSumbit = document.querySelector('.submit-form');
-const btnDelete = document.querySelector('.delete-card');
 
 const titleInput = document.querySelector('#title');
 const authorInput = document.querySelector('#author');
@@ -36,7 +35,7 @@ function displayAllBooks(arr) {
 		content.insertAdjacentHTML(
 			'beforeend',
 			`
-		<div class="card">
+		<div class="card" data-index=${myLibrary.indexOf(element)}>
 					<div class="title-card">${element.title}</div>
 					<div class="author-card">${element.author}</div>
 					<div class="date-card">${element.date}</div>
@@ -83,13 +82,13 @@ btnSumbit.addEventListener('click', (e) => {
 });
 
 console.log(myLibrary);
-btnDelete.addEventListener('click', () => {
-	// Find index of card
-	let indexCard = btnDelete.closest('.card').dataset.index;
 
-	// Update display
+content.addEventListener('click', (e) => {
+	if (!e.target.classList.contains('delete-card')) return;
 
-	// Delete element from array
+	let indexCard = e.target.closest('.card').getAttribute('data-index');
+
 	myLibrary.splice(indexCard, 1);
-	console.log(myLibrary);
+
+	updateDisplay(myLibrary);
 });
