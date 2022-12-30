@@ -13,6 +13,8 @@ const dateInput = document.querySelector('#date');
 const ratingInput = document.querySelector('#rating');
 const statusInput = document.querySelector('#status');
 
+const btnRead = document.querySelectorAll('.status-card');
+
 let myLibrary = [];
 
 function Book(title, author, date, rating, status) {
@@ -40,8 +42,9 @@ function displayAllBooks(arr) {
 					<div class="author-card">${element.author}</div>
 					<div class="date-card">${element.date}</div>
 					<div class="rating-card">${element.rating}</div>
-					<div class="status-card">${element.status}</div>
+					<div class="status-card">${element.status ? 'Read' : 'Not Read'}</div>
 					<button class="delete-card">X</button>
+				
 
 				</div>`
 		);
@@ -59,15 +62,25 @@ function updateDisplay(arr) {
 	displayAllBooks(arr);
 }
 
+// Read Status Change
+
+// Add Event Listener
+// btnRead.forEach((element) => {
+// 	element.addEventListener('click', (e) => {
+// 		console.log(
+// 			myLibrary[e.target.closest('.card').getAttribute('data-index')]
+// 		);
+// 	});
+// });
+
 displayAllBooks(myLibrary);
-// resetBooks();
 
 titleWindow.addEventListener('click', () => {
 	form.classList.toggle('hidden');
 });
 
 // FIXME: Form is hidden due to opacity but still exists and can be moused over
-
+// FIXME: Status does not coincide with true/ false
 btnSumbit.addEventListener('click', (e) => {
 	e.preventDefault();
 	form.classList.toggle('hidden');
@@ -81,14 +94,21 @@ btnSumbit.addEventListener('click', (e) => {
 	updateDisplay(myLibrary);
 });
 
-console.log(myLibrary);
-
+// TODO: Add confirmation button
 content.addEventListener('click', (e) => {
-	if (!e.target.classList.contains('delete-card')) return;
+	console.log(e.target);
+	if (e.target.classList.contains('delete-card')) {
+		let indexCard = e.target.closest('.card').getAttribute('data-index');
 
-	let indexCard = e.target.closest('.card').getAttribute('data-index');
+		myLibrary.splice(indexCard, 1);
 
-	myLibrary.splice(indexCard, 1);
+		updateDisplay(myLibrary);
+	}
 
-	updateDisplay(myLibrary);
+	if (e.target.classList.contains('status-card')) {
+		let indexCard = e.target.closest('.card').getAttribute('data-index');
+		myLibrary[indexCard].status = !myLibrary[indexCard].status;
+
+		updateDisplay(myLibrary);
+	}
 });

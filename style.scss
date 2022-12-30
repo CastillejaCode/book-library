@@ -185,8 +185,9 @@ body {
 	display: grid;
 
 	grid-row: 2 / 3;
-	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+	grid-template-columns: repeat(6, 1fr);
 	grid-template-rows: 1fr 1fr;
+	gap: 1rem;
 
 	padding: 4rem;
 }
@@ -205,6 +206,19 @@ body {
 
 	font-size: 1.5rem;
 	font-weight: bold;
+
+	button {
+		border: none;
+		outline: none;
+		background-color: $white;
+
+		transition: all 0.5s;
+
+		&:hover {
+			color: red;
+			transform: scale(2);
+		}
+	}
 }
 
 .add-book-form {

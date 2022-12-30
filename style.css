@@ -180,8 +180,9 @@ body {
 .content {
   display: grid;
   grid-row: 2/3;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr 1fr;
+  gap: 1rem;
   padding: 4rem;
 }
 
@@ -197,6 +198,16 @@ body {
   border-radius: 15px;
   font-size: 1.5rem;
   font-weight: bold;
+}
+.card button {
+  border: none;
+  outline: none;
+  background-color: #eaeaea;
+  transition: all 0.5s;
+}
+.card button:hover {
+  color: red;
+  transform: scale(2);
 }
 
 .add-book-form {
